@@ -99,7 +99,7 @@ do
   vim.g.maplocalleader = ' '
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
-  vim.g.have_nerd_font = false
+  vim.g.have_nerd_font = true
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
@@ -354,11 +354,19 @@ do
   local gitsigns = require 'gitsigns'
   gitsigns.setup {
     signs = {
-      add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-      change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-      delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-      topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-      changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
+      add = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      change = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      delete = { text = '' }, ---@diagnostic disable-line: missing-fields
+      topdelete = { text = '' }, ---@diagnostic disable-line: missing-fields
+      changedelete = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      untracked = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+    },
+    signs_staged = {
+      add = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      change = { text = '▎' }, ---@diagnostic disable-line: missing-fields
+      delete = { text = '' }, ---@diagnostic disable-line: missing-fields
+      topdelete = { text = '' }, ---@diagnostic disable-line: missing-fields
+      changedelete = { text = '▎' }, ---@diagnostic disable-line: missing-fields
     },
     -- gitsigns.nvim's recommended keymaps:
     on_attach = function(bufnr)
@@ -1023,7 +1031,7 @@ do
   -- NOTE: You can add your own plugins, configuration, etc. in `lua/custom/plugins/*.lua`.
   --
   -- For independent modules, uncomment the convenience loader:
-  -- require 'custom.plugins'
+  require 'custom.plugins'
   --
   -- `custom.plugins` automatically loads files from that directory, but their
   -- order is unspecified. If plugins depend on each other, keep them in the same
